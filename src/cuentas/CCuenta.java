@@ -1,5 +1,13 @@
 package cuentas;
 
+/**
+ * 
+ * @author Miguel
+ * Esta clase define una cuenta que tendrá un titular, un número de cuenta asociado,
+ * un saldo y un tipo de interés. El saldo se verá incrementado o disminuido
+ * si hay ingresos o retiradas respectivamente.
+ */
+
 public class CCuenta {
 
     private String nombre;
@@ -8,65 +16,76 @@ public class CCuenta {
     private double tipoInterés;
 
     /**
-     * @return the nombre
+     * @return nombre
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * @param nombre the nombre to set
+     * @param nombre el nombre a cambiar
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
     /**
-     * @return the cuenta
+     * @return cuenta
      */
     public String getCuenta() {
         return cuenta;
     }
 
     /**
-     * @param cuenta the cuenta to set
+     * @param cuenta el número de cuenta que sustituirá a la existente
      */
     public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
 
     /**
-     * @return the saldo
+     * @return saldo devuelve el saldo de la cuenta
      */
     public double getSaldo() {
         return saldo;
     }
 
     /**
-     * @param saldo the saldo to set
+     * @param saldo el saldo que sustituirá al actual
      */
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
     /**
-     * @return the tipoInterés
+     * @return tipoInterés el tipo de interes de la cuenta
      */
     public double getTipoInterés() {
         return tipoInterés;
     }
 
     /**
-     * @param tipoInterés the tipoInterés to set
+     * @param tipoInterés el tipo de interés que sustituirá al actual
      */
     public void setTipoInterés(double tipoInterés) {
         this.tipoInterés = tipoInterés;
     }
 
+    /**
+     * Constructor vacío
+     */
+    
     public CCuenta()
     {
     }
 
+    /**
+     * Constructor con parámetros
+     * @param nom nombre del titular
+     * @param cue número de cuenta
+     * @param sal saldo de la cuenta
+     * @param tipo a pesar de aldmitirlo como parámetro, no se usa en el constructor
+     */
     public CCuenta(String nom, String cue, double sal, double tipo)
     {
         nombre =nom;
@@ -74,11 +93,19 @@ public class CCuenta {
         saldo=sal;
     }
 
+    /**
+     * Obtiene el saldo de la cuenta
+     * @return getSaldo() el saldo de la cuenta
+     */
     public double estado()
     {
         return getSaldo();
     }
 
+    /**
+     * Realiza un ingreso en la cuenta.
+     * @param cantidad cantidad a ingresar. Será una cantidad positiva.
+     */
     public void ingresar(double cantidad) throws Exception
     {
         if (cantidad<0)
@@ -86,6 +113,10 @@ public class CCuenta {
         setSaldo(getSaldo() + cantidad);
     }
 
+     /**
+     * Realiza un reintegro en la cuenta.
+     * @param cantidad cantidad a retirar. Será una cantidad positiva.
+     */
     public void retirar(double cantidad) throws Exception
     {
         if (cantidad <= 0)
