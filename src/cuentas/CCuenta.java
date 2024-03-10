@@ -91,6 +91,7 @@ public class CCuenta {
         nombre =nom;
         cuenta=cue;
         saldo=sal;
+        
     }
 
     /**
